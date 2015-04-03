@@ -1,8 +1,5 @@
-﻿$kDirectory = Join-Path -ChildPath .k\ -Path $env:USERPROFILE
+$kDirectory = Join-Path -ChildPath .k\ -Path $env:USERPROFILE
 $env:Path += ";" + $kDirectory + "bin"
-Write-Host $env:Path
-k upgrade
-$runtime = Get-ChildItem -Directory -Path C:\Users\pnewhook\.k\runtimes | Select-Object -First 1 
-$env:Path += ";" + $runtime.FullName
+kvm upgrade
 kpm restore .\src
 kpm build .\src

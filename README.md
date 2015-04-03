@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/7a2472615jflqgit?svg=true)](https://ci.appveyor.com/project/pnewhook/uavdb)
