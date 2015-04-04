@@ -47,9 +47,10 @@
   "scripts": {
     "postrestore": [
       "npm install"
-    ],
-    "prepare": [
-      "gulp"
     ]
+    //  ,
+    //"prepare": [
+    //  "gulp"
+    //]
   }
 }
