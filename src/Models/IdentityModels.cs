@@ -1,10 +1,8 @@
 using System;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
-using Microsoft.Data.Entity.Metadata;
-using Microsoft.Framework.OptionsModel;
+
 
 namespace UAVdb.Models
 {
@@ -31,11 +29,11 @@ namespace UAVdb.Models
                     var mono = Type.GetType("Mono.Runtime") != null;
                     if(!mono)
                     {
-                        Database.AsMigrationsEnabled().ApplyMigrations();
+                        // TODO
                     }
                 } else {
                     // need to add a way to test of Migrations are available
-                    Database.AsMigrationsEnabled().ApplyMigrations();
+                    Database.AsRelational().ApplyMigrations();
                 }
 
                 _created = true;

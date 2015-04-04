@@ -8,9 +8,19 @@ using UAVdb.Models;
 namespace src.Migrations
 {
     [ContextType(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    partial class initial
     {
-        public override IModel Model
+        public override string Id
+        {
+            get { return "20150404211647_initial"; }
+        }
+        
+        public override string ProductVersion
+        {
+            get { return "7.0.0-beta5-12820"; }
+        }
+        
+        public override IModel Target
         {
             get
             {

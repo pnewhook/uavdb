@@ -3,16 +3,13 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Diagnostics.Entity;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Routing;
-using Microsoft.AspNet.Security.Cookies;
-using Microsoft.Data.Entity;
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
-using Microsoft.Framework.Logging.Console;
+using Microsoft.AspNet.Identity.EntityFramework;
 using UAVdb.Models;
+using Microsoft.Data.Entity;
+
 
 namespace UAVdb
 {
@@ -36,14 +33,20 @@ namespace UAVdb
             // consider using Azure SQL or non local store for xplat until EF7 has full ASP.NET 5 support
             if (!mono)
             {
-                services.AddEntityFramework(Configuration)
+                services.AddEntityFramework()
                         .AddSqlServer()
-                        .AddDbContext<ApplicationDbContext>();
+                        .AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.Get("Data:DefaultConnection:ConnectionString")));
             }
 
             // Add Identity services to the services container.
-            services.AddIdentity<ApplicationUser, IdentityRole>(Configuration)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+            
+            services.ConfigureFacebookAuthentication(options =>{
+                
+            });
+            
 
             // Add MVC services to the services container.
             services.AddMvc();

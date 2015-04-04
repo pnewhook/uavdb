@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Mvc;
 using UAVdb.Models;
+using Microsoft.AspNet.Authorization;
+
+
 
 namespace UAVdb.Controllers
 {
@@ -148,7 +151,7 @@ namespace UAVdb.Controllers
 
         private async Task<ApplicationUser> GetCurrentUserAsync()
         {
-            return await UserManager.FindByIdAsync(Context.User.Identity.GetUserId());
+            return await UserManager.FindByNameAsync(User.Identity.Name);
         }
 
         public enum ManageMessageId
