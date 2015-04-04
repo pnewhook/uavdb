@@ -6,7 +6,7 @@ var del = require("del");
 
 gulp.task("bower", function () {
     return bower()
-        .pipe(gulp.dest("wwwroot/lib"));
+        .pipe(gulp.dest("./wwwroot/lib"));
 });
 
 gulp.task("clean", function (cb) {
