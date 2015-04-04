@@ -2,5 +2,5 @@ version: 1.0.{build}
 install:
   - cinst nodejs -y
   - cmd: powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/master/kvminstall.ps1'))"
-  - cmd: npm install -g grunt-cli bower
+  - cmd: npm install -g gulp bower
 build_script: powershell -NoProfile -ExecutionPolicy unrestricted build.ps1
