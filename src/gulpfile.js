@@ -4,7 +4,7 @@ var gulp = require("gulp");
 var bower = require("gulp-bower");
 var del = require("del");
 
-gulp.task("bower", function () {
+gulp.task("bower", ["clean"], function () {
     return bower()
         .pipe(gulp.dest("wwwroot/lib"));
 });

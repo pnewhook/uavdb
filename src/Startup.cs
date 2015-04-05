@@ -44,7 +44,8 @@ namespace UAVdb
                 .AddDefaultTokenProviders();
             
             services.ConfigureFacebookAuthentication(options =>{
-                
+                options.AppId = Configuration.Get("AppSettings:fbAppId");
+                options.AppSecret = Configuration.Get("AppSettings:fbAppSecret");
             });
             
 

@@ -8,5 +8,9 @@
         "ApplicationDbContext": {
             "ConnectionString": "Data:DefaultConnection:ConnectionString"
         }
+    },
+    "AppSettings": {
+        "fbAppID": "1588435388106757",
+        "fbAppSecret": "e3b3715aa405149d5eb9890298658037"
     }
 }
