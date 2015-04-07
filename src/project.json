@@ -20,15 +20,16 @@
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta3",
     "EntityFramework.InMemory": "7.0.0-beta5-*",
     "Kestrel": "1.0.0-beta5-*",
-    "kmon": "0.3.0",
-    "Microsoft.AspNet.RequestContainer": "1.0.0-beta3"
+    "dnxmon": "0.4.0",
+    "Microsoft.AspNet.RequestContainer": "1.0.0-beta3",
+    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta5-*"
   },
   "commands": {
     "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5001",
     "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004",
     "gen": "Microsoft.Framework.CodeGeneration",
     "ef": "EntityFramework.Commands",
-    "mon": "kmon --ext cs,json,js --server web"
+    "mon": "dnxmon --ext cs,json,js --server web"
   },
   "frameworks": {
     "dnx451": {}
