@@ -17,12 +17,14 @@
     "Microsoft.Framework.CodeGenerators.Mvc": "1.0.0-beta5-*",
     "Microsoft.Framework.Logging": "1.0.0-beta5-*",
     "Microsoft.Framework.Logging.Console": "1.0.0-beta5-*",
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta3",
+    // disabled while there is reference problem
+    //"Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta3",
     "EntityFramework.InMemory": "7.0.0-beta5-*",
     "Kestrel": "1.0.0-beta5-*",
     "dnxmon": "0.4.0",
     "Microsoft.AspNet.RequestContainer": "1.0.0-beta3",
-    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta5-*"
+    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-beta5-*",
+    "Microsoft.AspNet.Http.Core": "1.0.0-beta5-*"
   },
   "commands": {
     "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5001",

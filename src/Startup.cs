@@ -19,7 +19,8 @@ namespace UAVdb
         {
             // Setup configuration sources.
             Configuration = new Configuration()
-                .AddJsonFile("config.json")
+                // there appears to be an issue locating this file
+                //.AddJsonFile("config.json")
                 .AddEnvironmentVariables();
         }
 
@@ -68,7 +69,9 @@ namespace UAVdb
             // Add the following to the request pipeline only in development environment.
             if (string.Equals(env.EnvironmentName, "Development", StringComparison.OrdinalIgnoreCase))
             {
-                app.UseBrowserLink();
+                // disabled while there is the Microsoft.AspNet.Http.Core
+                // version conflict
+                //app.UseBrowserLink();
                 app.UseErrorPage(ErrorPageOptions.ShowAll);
                 app.UseDatabaseErrorPage(DatabaseErrorPageOptions.ShowAll);
             }
