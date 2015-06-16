@@ -20,7 +20,7 @@ namespace UAVdb
             // Setup configuration sources.
             Configuration = new Configuration()
                 // there appears to be an issue locating this file
-                //.AddJsonFile("config.json")
+                .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
         }
 
@@ -34,9 +34,10 @@ namespace UAVdb
             // consider using Azure SQL or non local store for xplat until EF7 has full ASP.NET 5 support
             if (!mono)
             {
+                var connectionString = Configuration.Get("Data:DefaultConnection:ConnectionString");
                 services.AddEntityFramework()
                         .AddSqlServer()
-                        .AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.Get("Data:DefaultConnection:ConnectionString")));
+                        .AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
             }
 
             // Add Identity services to the services container.
@@ -72,7 +73,7 @@ namespace UAVdb
                 // disabled while there is the Microsoft.AspNet.Http.Core
                 // version conflict
                 //app.UseBrowserLink();
-                app.UseErrorPage(ErrorPageOptions.ShowAll);
+                app.UseErrorPage();
                 app.UseDatabaseErrorPage(DatabaseErrorPageOptions.ShowAll);
             }
             else
