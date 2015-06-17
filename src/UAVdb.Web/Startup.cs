@@ -9,18 +9,18 @@ using Microsoft.Framework.Logging;
 using Microsoft.AspNet.Identity.EntityFramework;
 using UAVdb.Models;
 using Microsoft.Data.Entity;
-
+using Microsoft.Framework.Runtime;
 
 namespace UAVdb
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
             // Setup configuration sources.
-            Configuration = new Configuration()
+            Configuration = new Configuration(appEnv.ApplicationBasePath)
                 // there appears to be an issue locating this file
-                .AddJsonFile("config.json")
+                .AddJsonFile(@"config.json")
                 .AddEnvironmentVariables();
         }
 
